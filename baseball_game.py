@@ -270,7 +270,7 @@ def main():
             print('Wrong Input, Input again')
         else:
             game_result = get_strikes_or_ball(user_input, random_number)
-            print('Strikes : ', game_result[0], 'Ball s: ', game_result[1])
+            print('Strikes : ', game_result[0], 'Balls: ', game_result[1])
             if game_result[0] == 3:
                 again = input('You win, one more(Y/N)?')
                 while not is_yes(again) and not is_no(again):
