@@ -57,7 +57,8 @@ def is_between_100_and_999(user_input_number):
     # '''
     # ===Modify codes below=============
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
-    result = True if (user_input_number>=100) and (user_input_number<1000) else False 
+
+    result = True if (int(user_input_number)>=100) and (int(user_input_number)<1000) else False 
     # ==================================
     return result
 
@@ -278,7 +279,7 @@ def main():
                 if is_no(again): break
                 else:
                     random_number = str(get_not_duplicated_three_digit_number())
-                    print("Random Number is : ", random_number)
+                    print('Random Number is : ', random_number)
     # ==================================
     print("Thank you for using this program")
     print("End of the Game")
