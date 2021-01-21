@@ -213,7 +213,9 @@ def is_yes(one_more_input):
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
 
     result = False
-    
+    lower_input = one_more_input.lower()
+    if lower_input == 'y' or lower_input == 'yes':
+        result = True
     # ==================================
     return result
 
@@ -245,7 +247,10 @@ def is_no(one_more_input):
     # ===Modify codes below=============
     # 조건에 따라 변환되어야 할 결과를 result 변수에 할당
 
-    result = None
+    result = False
+    lower_input = one_more_input.lower()
+    if lower_input == 'n' or lower_input == 'no':
+        result = True
     # ==================================
     return result
 
@@ -257,8 +262,23 @@ def main():
     print("Random Number is : ", random_number)
     # ===Modify codes below=============
     # 위의 코드를 포함하여 자유로운 수정이 가능함
-
-
+    while user_input != '0':
+        user_input = input('Inupu guess number : ')
+        if user_input == '0': break
+        if not is_validated_number(user_input):
+            print('Wrong Input, Input again')
+        else:
+            game_result = get_strikes_or_ball(user_input, random_number)
+            print('Strikes : ', game_result[0], 'Ball s: ', game_result[1])
+            if game_result[0] == 3:
+                again = input('You win, one more(Y/N)?')
+                while not is_yes(again) and not is_no(again):
+                    print('Wrong Input, Input again')
+                    again = input('You win, one more(Y/N)?')
+                if is_no(again): break
+                else:
+                    random_number = str(get_not_duplicated_three_digit_number())
+                    print("Random Number is : ", random_number)
     # ==================================
     print("Thank you for using this program")
     print("End of the Game")
